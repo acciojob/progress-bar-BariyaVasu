@@ -1,1 +1,91 @@
 /*  your css code here. If applicable */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f0f0;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.container {
+  width: 500px;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.progress-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background-color: #d3d3d3;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(to right, #2B2B2B, #652BCD);
+  z-index: 1;
+  transform: translateY(-50%);
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.circle {
+  background-color: #fff;
+  color: #999;
+  border: 3px solid #d3d3d3;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.circle.active {
+  border-color: #652BCD;
+  color: #652BCD;
+  font-weight: bold;
+}
+
+.buttons {
+  text-align: center;
+}
+
+button {
+  background-color: #652BCD;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  margin: 0 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
